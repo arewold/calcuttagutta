@@ -1,0 +1,175 @@
+<? header('Content-type: application/rss+xml'); 
+require_once('dao/mysql_dao.php');
+echo '<?xml version="1.0" encoding="UTF-8"?>';
+?>
+
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+<title>
+<?
+if ( $_REQUEST['type'] == 'flash' ) {
+	echo 'Gutta fra Calcutta - lynforum!';
+} else {
+	echo 'Gutta fra Calcutta';
+}
+?>
+	
+</title>
+<description>Gutta fra Calcutta: Smarte folk skriver lurt om mye rart</description>
+<link>http://www.calcuttagutta.com</link>
+<copyright>http://www.calcuttagutta.com</copyright>
+<ttl>60</ttl>
+<lastBuildDate><? echo getRFC822TimeString( getScalar( "SELECT CONCAT(date_posted, ' ', time_posted) FROM articles WHERE is_draft IS NULL and is_deleted IS NULL ORDER BY date_posted DESC, time_posted DESC LIMIT 1" ) );?></lastBuildDate>
+
+<?
+// Default number of items; can be overriden by adding items=number in the URL
+$numberOfItems = 25;
+if ( isset( $_REQUEST['items'] ) )
+{
+	if ( is_numeric( $_REQUEST['items'] ) )
+	{
+		$numberOfItems = abs( intval( $_REQUEST['items'] ) );
+	}
+}
+
+// Full text?
+$fullText = true;
+$fullText = true;
+if ( isset ( $_REQUEST['full'] ) )
+{
+	if ( $_REQUEST['full'] == 'true' )
+	{
+		$fullText = true;
+	}
+}
+
+// Type of articles included in the feed; default all.
+$query = "SELECT * FROM articles WHERE is_draft IS NULL AND is_deleted IS NULL ORDER BY date_posted DESC, time_posted DESC LIMIT " . $numberOfItems . ";";
+if ( isset ( $_REQUEST['type'] ) )
+{
+	if ( $_REQUEST['type'] == 'articles' )
+	{
+		$query = "SELECT * FROM articles WHERE is_draft IS NULL AND is_deleted IS NULL AND comment_to IS NULL ORDER BY date_posted DESC, time_posted DESC LIMIT " . $numberOfItems . ";";
+	}
+	else if ( $_REQUEST['type'] == 'comments' )
+	{
+		$query = "SELECT * FROM articles WHERE is_draft IS NULL AND is_deleted IS NULL AND comment_to IS NOT NULL ORDER BY date_posted DESC, time_posted DESC LIMIT " . $numberOfItems . ";";
+	}
+	else if ( $_REQUEST['type'] == 'flash' )
+	{
+		$query = "SELECT postid, author, message as body, UNIX_TIMESTAMP(time_posted) as time_posted FROM flashforum ORDER BY time_posted DESC LIMIT " . $numberOfItems . ";";
+		//$query = "SELECT * FROM articles WHERE is_draft IS NULL AND is_deleted IS NULL AND comment_to IS NOT NULL ORDER BY date_posted DESC, time_posted DESC LIMIT " . $numberOfItems . ";";
+	}
+}
+$articles = getTable( $query );
+
+// Loop through the result
+while ( $row = getNextRow( $articles ) )
+{
+	$comment_to = $row['comment_to'];
+	$title = ( ( $comment_to > 0 ) ? ( "" . $row['title'] ) : ( $row['title'] ) );
+
+	
+	
+	$body = str_replace( "&", "&amp;", strip_tags( stripslashes($row['body']) ) );
+
+	if ( $fullText == false )
+	{
+		if ( strlen( $body ) > 500 )
+		{
+			$body = substr( $body, 0, 300 ) . "...";
+		}
+	}
+
+	$creator = $row['author'];
+
+	// Description - fetch parent title if this is a comment
+	if ( $comment_to > 0 )
+	{
+		if ( $title == '' ) {
+			$title = "Kommentar til '" . getScalar( "SELECT title FROM articles WHERE articleid=" . $comment_to . ";" ) . "'";
+			//$title = $title . " (kommentar til '" . getScalar( "SELECT title FROM articles WHERE articleid=" . $comment_to . ";" ) . "')";
+		} else {
+		}		
+		// $description = "(Kommentar til " . getScalar( "SELECT title FROM articles WHERE articleid=" . $comment_to . ";" ) . ":) " . $body;
+	}
+	$description = $body;
+	
+
+	// the link
+	if ( $_REQUEST['type'] == 'flash' ) 
+	{
+		// If we are working with flash comments, make the link point to the first URL in the flash post
+		if(preg_match('/<a href="(.*?)"/i',stripslashes($row['body']),$regs)){
+			$link = $regs[1];
+		} else {
+			// Found no URL, use blank link
+			$link = '';
+		}
+		
+		// and make the title equal the description
+		$title = $description;
+		
+		// and prepend the author to the title
+		$title = $creator . ": " . $title;
+		
+		// and the description blank
+		$description = '';
+	}
+	else if ( $comment_to > 0 )
+	{
+		$link = "http://www.calcuttagutta.com/index.php?m_c=m_va&amp;articleid&#61;" . $row['comment_to'] . '#comments';
+	}
+	else
+	{
+		$link = 'http://www.calcuttagutta.com/index.php?m_c=m_va&amp;articleid&#61;' . $row['articleid'];
+	}
+	
+
+
+	//$link = preg_replace("/http(s)?:\/\/(.*?)\s/i", "<a href=\"$0\">$0</a>", $row['body']);
+
+	// the GUID - identified by last update - not really in use, but maybe in the future..
+	// as long as this is NOT marked as a permalink=true - it's just a string - not a link. I'll leave it like that since we don't really support viewing old versions of a post, just identifying them.
+	if ( $comment_to > 0 )
+	{
+		// also has the comment id (articleid) to make sure we identify the unique comment. Two comments posted at the same minute to the same article would make it not unique due to the reference to the parent article
+		$guid = "http://www.calcuttagutta.com/index.php?m_c=m_va&amp;articleid&#61;" . $row['comment_to']  . '&amp;version&#61;' . $row['date_posted'] . '-' . str_replace( ':', '-', $row['time_posted'] ) . '&amp;cid&#61;' . $row['articleid'] . '#comments';
+	}
+	else
+	{
+		$guid = 'http://www.calcuttagutta.com/index.php?m_c=m_va&amp;articleid&#61;' . $row['articleid'] . '&amp;version&#61;' . $row['date_posted'] . '-' . str_replace( ':', '-', $row['time_posted'] );
+	}
+
+	// Publication date in RFC822 format
+	$pubDate = getRFC822TimeString( $row['date_posted'] . " " . $row['time_posted'] );
+
+	// output the Item
+	echo buildItem( $title, $creator, $description, $link, $guid, $pubDate );
+}
+?>
+
+</channel>
+</rss>
+
+<?
+// Creates an <item> tag, returned as a String
+function buildItem( $title, $creator, $description, $link, $guid, $pubDate )
+{ 
+	return "<item>\n" .
+		"<title>" . $title . "</title>\n" .
+		"<dc:creator>" . $creator . "</dc:creator>\n" .
+		"<description>" . $description . "</description>\n" .
+		"<link>" . $link . "</link>\n" .
+		"<guid isPermaLink=\"false\">" . $guid . "</guid>\n" .
+		"<pubDate>" . $pubDate . "</pubDate>\n" .
+		"</item>\n\n";
+}
+
+// Takes a Calcuttagutta date_posted + space + time_posted and converts to RFC822 format
+function getRFC822TimeString( $time )
+{
+	return date( "D, d M Y H:i:s O", strtotime( $time ) );
+}
+?>
+

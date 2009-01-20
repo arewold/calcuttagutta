@@ -1,0 +1,735 @@
+/* GALAPAGOSSTIL FOR CALCUTTAGUTTA */
+
+/* Feedback fra AJAX-operasjoner - vises typisk øverst på siden når bruker 
+ * legger til eller sletter stilark */
+.xhr_success	{
+				color:green;
+				font-weight:bold;
+				font-size:150%;
+				}
+				
+.xhr_failure	{
+				color:red;
+				font-weight:bold;
+				font-size:150%;
+				}
+
+.beta_box		{
+				border-width: 2px;
+				border-color: green;
+				border-style: dotted;
+				padding:10px;
+
+				}
+
+.beta_header	{
+				color:green;
+				font-size:150%;
+				font-weight:bold;
+				padding:10px;
+				}
+
+/* Hovedmenyen �verst p� siden */
+
+.topmenu 	{
+			text-align:center; 
+			padding-top:5px;
+			font-weight:bold;
+			font-size:100%;
+			color:black;
+			background-color:transparent;
+			}
+
+.topmenu a:link 	{background-color:transparent; color:black; font-weight:bold; font-size:95%; text-decoration:none;}
+.topmenu a:visited 	{background-color:transparent; color:black; font-weight:bold; font-size:95%; text-decoration:none;}
+.topmenu a:hover 	{background-color:transparent; color:black; font-weight:bold; font-size:95%; text-decoration:none;}
+.topmenu a:active 	{background-color:transparent; color:black; font-weight:bold; font-size:95%; text-decoration:none;}
+
+
+
+/* LINKER (vanlig,bes�kt,mouseover,klikk) */
+
+A:link 		{background-color:transparent; color:#5F654F ;text-decoration:none;}
+A:visited 	{background-color:transparent; color:#5F654F ;text-decoration:none;}
+A:hover 	{background-color:transparent; color:#5F654F ;text-decoration:none;}
+A:active 	{background-color:transparent; color:#5F654F ;text-decoration:none;}
+
+
+
+/* KNAPPER */
+
+/* knapp, alle */
+
+input.nice1 			{
+						width: auto; 
+						border: 3px double #999999; 
+						border-top-color: #CCCCCC; 
+						border-left-color: #CCCCCC; 
+						padding: 0.25em; 
+						background-color:rgb(240,240,240); 
+						background-repeat: repeat-x; 
+						color: black; 
+						font-size: 75%; 
+						font-weight: bold; 
+						font-family: Verdana, Helvetica, Arial, sans-serif
+						}
+
+/* knapp, lynforumet */
+
+.flashforum input.nice1 {
+						width: auto; 
+						border: 3px double #999999; 
+						border-top-color: #CCCCCC; 
+						border-left-color: #CCCCCC; 
+						padding: 0.25em; 
+						background-color:rgb(240,240,240); 
+						background-repeat: repeat-x; 
+						color: black; 
+						font-size: 75%; 
+						font-weight: bold; 
+						font-family: Verdana, Helvetica, Arial, sans-serif
+						}
+
+/* knapp, stilvelger */
+
+.options input.nice1 	{
+						width: auto; 
+						border: 3px double #999999; 
+						border-top-color: #CCCCCC; 
+						border-left-color: #CCCCCC; 
+						padding: 0.25em; 
+						background-color:rgb(240,240,240); 
+						background-repeat: repeat-x; 
+						color: black; 
+						font-size: 75%; 
+						font-weight: bold; 
+						font-family: Verdana, Helvetica, Arial, sans-serif
+						}
+
+
+
+/* Stil for skjemaer. Inline gj�r at man ikke f�r linjeskift f�r og 
+etter. */
+form {display:inline; }
+input {display:inline;}
+
+
+/* Stil for overskriften p� toppen og banneret, samt eventuelle 
+linker der (overskriften er en link)*/
+/* For � skjule overskriften, legg til display:hidden i egenskapene 
+til .banner h1 */
+/* For � legge til et bilde, legg til f.eks. background-image: 
+url('http://www.velbon.org/~arewold/banner.jpg')
+/* i .banner  -  banner-taggen m� da stilles en viss h�yde p� for at 
+banneret skal synes i den */
+/* Les mer her: http://www.w3schools.com/css/css_background.asp      */
+
+.banner A:link 		{text-decoration: none}
+.banner A:visited 	{text-decoration: none}
+.banner A:hover 	{text-decoration: none}
+.banner A:active 	{text-decoration: none}
+
+
+.banner h1  	{
+				padding-top: 5px;
+				text-align:left; 
+				color:black;
+				visibility:hidden
+			}
+
+.banner 		{
+				background-image: url('http://www.stud.ntnu.no/~jorges/banner.jpg');
+				background-position:45%; 
+				background-repeat:no-repeat; 
+				height:226px
+
+				}
+
+.banner span 	{
+				color:#B0D687;
+			 	position:absolute; 
+			 	display:block;
+
+			 	font-size:80%;
+			 	vertical-align:top; 
+			 	padding:15% 0% 0% 35%;
+				visibility:hidden;
+			 	}
+
+
+/* KOMMENTAR OG ARTIKKELOVERSKRIFTER */
+
+/* overskrifter forside */
+
+.articletitlefront a:link	{color:black; font-weight:bold; font-size:100%; line-height:110%}
+.articletitlefront a:visited{color:black; font-weight:bold; font-size:100%; line-height:110%}
+.articletitlefront a:hover 	{color:black; font-weight:bold; font-size:100%; line-height:110%}
+.articletitlefront a:active	{color:black; font-weight:bold; font-size:100%; line-height:110%}
+
+/* overskrift artikkelside og forside med 1 kolonne */
+
+.header2        {
+				font-weight:bold; 
+				font-size:150%;  
+				line-height:110%
+				}
+
+/* Overskrift artikler andre enn den første når kolonne > 1 */
+
+.header3        {
+				font-weight:bold; 
+				font-size:120%;  
+				line-height:110%
+				}
+
+
+/* der det st�r "kommentarer" */
+
+.header4 		{
+				font-weight:bold; 
+				font-size:100%;
+				text-align:center;
+				}
+
+/* duh-uh */
+
+.commentsheader	{
+				color:black; 
+				font-weight:bold; 
+				font-size:110%;
+				}
+
+
+/* Bestemmer generell bakgrunnsfarge/bakgrunnsbilde, hvor mye bredde 
+selve siden */
+/* skal ta opp i nettleservinduet, generell tekstjustering, generell 
+fontvalg, */
+/* generelt hvor mye marginer vi har mellom linjene og mer. */
+
+
+body            {
+				line-height:110%; 
+				font-family:Arial; 
+				background-color:#FFF3B7; 
+				width:90%;
+				text-align:left; 
+				padding:0 0 0 10px
+				}
+
+
+
+/* ARTIKLER p� forsiden generelt */
+
+.articles_frontpage 		{
+							background-color:#B0D687; 
+							vertical-align:top; 
+							padding:10px; 
+							border-style:solid;
+							border-color:#FFF3B7; 
+							border-width: 0px 0px 5px 0px
+							}
+
+.articles_frontpage_2column {
+							background-color:#B0D687; 
+							vertical-align:top; 
+							padding:10px; 
+							border-style:solid;
+							border-color:#FFF3B7; 
+							border-width:0px 0px 5px 0px;
+							width:50%; 
+							color:black
+							}
+
+
+
+/* ARTIKLER som vises alene */
+
+.articles 		{
+				vertical-align:top; 
+				width:600px
+				}
+
+.articlescell 	{
+				background-color:#B0D687;
+				vertical-align:top; 
+				padding:10px; 
+				border-style:solid;
+				border-color:#FFF3B7;
+				border-width:0px 0px 5px 0px
+				}
+
+.commentscell 	{
+				background-color:#B0D687;
+				vertical-align:top;
+				padding:10px; 
+				border-style:solid;
+				border-color:#FFF3B7;
+				border-width: 0px 0px 5px 0px;
+				}
+
+
+
+
+/* selve TEKSTEN i hhv artikler og kommentarer. */
+
+.textbody 			{
+					font-size:80%;
+					padding-bottom:20px;
+					padding-left:10px; 
+					padding-right:10px;					
+					line-height:120%;
+					color:black;
+					}
+
+.textbody_comment   {
+					font-size:80%; 
+					padding-bottom: 5px; 
+					padding-left:10px; 
+					padding-right:10px;
+					color:black;
+					}
+
+
+
+/* linker inne i artikler */
+
+.textbody a:link 	{color:#5F654F; font-weight:normal; text-decoration:underline;}
+.textbody a:visited {color:#5F654F; font-weight:normal; text-decoration:underline;}
+.textbody a:hover 	{color:#5F654F; font-weight:normal; text-decoration:none;}
+.textbody a:active 	{color:#5F654F; font-weight:normal; text-decoration:underline;}
+
+
+/*linker inne i kommentarer */
+
+.textbody_comment a:link 	{color:#5F654F; font-weight:normal; text-decoration:underline;}
+.textbody_comment a:visited {color:#5F654F; font-weight:normal; text-decoration:underline;}
+.textbody_comment a:hover 	{color:#5F654F; font-weight:normal; text-decoration:none;}
+.textbody_comment a:active 	{color:#5F654F; font-weight:normal; text-decoration:underline;}
+
+
+/* vis artikkelside og les kommentarer linkene */
+
+.showarticlelink 			{
+							font-size:80%;
+							text-align:right; 
+							position:relative; 
+							padding-top: 10px;
+							bottom:0px; 
+							padding-bottom:1px; 
+							vertical-align:bottom;
+							}
+
+.showarticlelink a:link 	{color:#5F654F; font-weight:bold;}
+.showarticlelink a:visited 	{color:#5F654F; font-weight:bold;}
+.showarticlelink a:hover 	{color:#5F654F; font-weight:bold;}
+.showarticlelink a:active 	{color:#5F654F; font-weight:bold;}
+
+
+/* forfatternavn og tidspunkt i forbindelse med artikler */
+
+.metatext 			{color:black; font-size: 80%; font-style:italic; padding: 5px 10px 10px 0px;}
+
+.author a:link 		{color:#5F654F; font-weight:bold; font-style:italic; font-size:110%; text-decoration:none;}
+.author a:visited 	{color:#5F654F; font-weight:bold; font-style:italic; font-size:110%; text-decoration:none;}
+.author a:hover 	{color:#5F654F; font-weight:bold; font-style:italic; font-size:110%; text-decoration:none;}
+.author a:active 	{color:#5F654F; font-weight:bold; font-style:italic; font-size:110%; text-decoration:none;}
+
+.date				{color:black; font-style:italic; font-size:100%;}
+
+.time           	{color:black; font-style:italic; font-weight:bold; font-size:110%;}
+
+
+
+/* forfatternavn og tidspunkt i forbindelse med kommentarer */
+
+.commentmetatext	{color:black; font-size: 80%; font-style:italic; padding: 5px 10px 10px 0px;}
+
+.commentauthor a:link 		{color:#5F654F; font-weight:bold; font-style:italic; font-size:110%; text-decoration:none;}
+.commentauthor a:visited 	{color:#5F654F; font-weight:bold; font-style:italic; font-size:110%; text-decoration:none;}
+.commentauthor a:hover 		{color:#5F654F; font-weight:bold; font-style:italic; font-size:110%; text-decoration:none;}
+.commentauthor a:active 	{color:#5F654F; font-weight:bold; font-style:italic; font-size:110%; text-decoration:none;}
+
+.commentdate		{color:black; font-style:italic; font-size:100%;}
+
+.commenttime		{color:black; font-style:italic; font-weight:bold; font-size:110%;}
+
+
+
+/* Link til slett kommentar */
+
+.delcomment 			{
+						text-align:right; 
+						font-size:80%; 
+						padding-left:10px;
+						}
+
+.delcomment A:link 		{color:#5F654F; font-style:italic; text-decoration:none}
+.delcomment A:visited 	{color:#5F654F; font-style:italic; text-decoration:none}
+.delcomment A:hover 	{color:#5F654F; font-style:italic; text-decoration:underline}
+.delcomment A:active 	{color:#5F654F; font-style:italic; text-decoration:none}
+
+
+/* Linker til rediger artikkel og slett artikkel */
+
+.editarticle 			{
+						text-align:right; 
+						font-size:90%; 
+						font-style:normal;
+						}
+
+.editarticle A:link 	{color:#5F654F;text-decoration:underline}
+.editarticle A:visited 	{color:#5F654F;text-decoration:underline}
+.editarticle A:hover 	{color:#5F654F;text-decoration:none}
+.editarticle A:active 	{color:#5F654F;text-decoration:underline}
+
+
+
+
+/* Stil for de tre HOVEDKOLONNENE p� forsiden samt den raden som de 
+utgj�r sammen */
+
+
+.module_left 	{
+				width:150px; 
+				padding:10px; 
+				font-size:100%; 
+				border-style:solid;
+				border-width:0px 0px 0px 0px; 
+				margin:10px; 
+				vertical-align:top; 
+				}
+
+.module_center 	{
+				width:600px; 
+				padding:10px; 
+				margin:10px; 
+				vertical-align:top;
+				}
+
+.module_right 	{
+				width:150px; 
+				padding:10px 0px 10px 10px; 
+				font-size:80%; 
+				border-style:solid;
+				border-width:0px 0px 0px 0px;  
+				vertical-align:top;
+				}
+
+.main_row 		{
+				margin:10px;
+				padding:20px;
+				}
+
+
+
+/* SEKSJONENE P� VENSTRE SIDE */
+
+.recentcomments_heading {
+						font-weight:bold; 
+						color:black;
+						text-align:center;
+						}
+
+.recentcomments 		{
+						padding:5px 5px 20px 5px; 
+						border-style:solid; 
+						margin-top:2px;
+						border-width:0px 0px 0px 0px; 
+						background-color:#8ACBD4; 
+						margin-bottom:10px; 
+						font-size:80%;
+						text-align:center;
+						}
+
+.recentcomments_list 	{
+						position:relative; 
+						color:#976079;
+						left:0px; 
+						font-size:80%;
+						}
+
+
+.recentcomments_links 	{
+						position:relative; 
+						left:0px; 
+						font-size:100%;
+						}
+
+.pollheader 			{font-weight:bold; text-align:center;}
+
+.poll 					{
+						padding:5px 5px 20px 5px; 
+						border-style:solid; 
+						border-style:solid; 
+						border-width:0px 0px 0px 0px;
+						background-color:#8ACBD4; 
+						margin-bottom:10px; 
+						font-size:80%;
+						text-align:center;
+						}
+						
+
+.pollquestion			{line-height:100%;}						
+.polltable TD {}
+.polltable {}
+.polltitle {}
+.pollinput {text-align:right}
+.showallpolls {font-size:80%; text-align:center; padding-right:0px}
+
+
+.menu 					{
+						padding:5px 5px 20px 5px; 
+						border-style:solid; 
+						border-width:0px 0px 0px 0px;
+						background-color:#8ACBD4; 
+						margin-bottom:10px; 
+						font-size:80%;
+						text-align:left;
+						}
+
+.menu_main_header		{
+						font-weight:bold;
+						color:black;
+						text-align:center
+						}
+
+.menu_header 			{
+						font-weight:bold;
+						color:black;
+						}
+
+.menu_sub_header 		{
+						color:black;
+						}
+
+.menu_links 			{
+						line-height: 160%; 
+						position:relative; 
+						left:0px;
+						}
+
+.userlist_heading 		{
+						font-weight:bold;
+						color:black;
+						text-align:center
+						}
+
+.userlist 				{
+						padding:5px 5px 20px 5px; 
+						border-style:solid; 
+						border-width:0px 0px 0px 0px;
+						background-color:#8ACBD4; 
+						margin-bottom:10px; 
+						font-size:80%;
+						text-align:center;
+						}
+
+.userlist_links 		{
+						line-height: 160%; 
+						position:relative; 
+						left:0px;
+						}
+
+.viewmemberlist 		{
+						font-size:80%;
+						}
+
+.archive_heading 		{
+						font-weight:bold;
+						color:black;
+						text-align:center
+						}
+
+.archive 				{
+						padding:5px 5px 20px 5px; 
+						border-style:solid; 
+						border-width:0px 0px 0px 0px;
+						padding-left:5px; 
+						background-color:#8ACBD4; 
+						font-size:80%;
+						text-align:center;
+						}
+
+.archive_list 			{
+						line-height: 170%; 
+						position:relative; 
+						left:0px;
+						text-align:center;
+						}
+
+.recentarticles 		{
+						padding:5px 5px 5px 5px; 
+						border-style:solid; 
+						border-width:0px 0px 0px 0px;
+						background-color:#8ACBD4; 
+						margin-bottom:10px; font-size:80%
+						}
+
+.rss_feed 				{line-height: 180%; font-weight:bold; text-align:center;}
+
+.recentarticles_header 	{}
+.recentarticles_links	{}
+.recentarticles_link	{}
+.recentarticles_link a:link {}
+.recentarticles_link a:visited {}
+.recentarticles_link a:hover {}
+.recentarticles_link a:active {}
+
+
+/* LYNFORUM */
+
+/* hele seksjonen */
+
+.flashforum 		{
+					margin-top: 2px; 
+					padding:10px; 
+					border-style:none; 
+					background-color:#8BC63F; 
+					margin-bottom:10px
+					}
+
+.flashforumheader 	{
+				  	font-weight:bold;
+				  	font-size:120%;
+				  	color:black;
+					text-align:center;
+				  	}
+
+/* listen med poster */
+
+.flashforumlist 	{
+					font-size:100%; 
+					line-height:110%; 
+					width:140px;
+					color:black;
+					}
+
+.flashpost  		{
+					border-style:solid; 
+					border-width:0px 0px 3px 0px; 
+					border-color:#FFFFFF;
+					padding:0px 0px 0px 0px; 
+					margin:0px 0px 5px 0px; 
+					padding:5px; 
+					overflow:hidden
+					}
+
+.flashdate  		{
+					border-style:solid; 
+					border-width:0px 0px 2px 0px; 
+					border-color:black;
+					margin-top:10px; 
+					font-weight:bold 
+					}
+
+.flashauthor 		{
+			 		font-weight:bold
+			 		}
+
+/* linker i postene */
+
+.flashforum a:link {color:#5F654F; text-decoration:underline;}
+.flashforum a:visited {color:#5F654F; text-decoration:underline;}
+.flashforum a:hover {color:#5F654F; text-decoration:none;}
+.flashforum a:active {color:#5F654F; text-decoration:none;}
+
+
+/* STILVELGER */
+
+.options 		{
+				padding:10px; 
+				border-style:none; 
+				background-color:#8ACBD4; 
+				width:150px
+				}
+
+.optionsheader 	{
+				font-weight:bold;
+				color:black;
+				padding-bottom:2px;
+				padding-top:2px;
+				}
+
+
+
+/* Generelle fonter for textarae */
+textarea	{font-family: arial; font-size:80%}
+
+/* Generelt vil vi at alle textarea (tekstfelter som g�r over flere linjer) skal ta hele bredden) */
+.default_table textarea {width:100%}
+
+
+/* Stiler for bokser o.l i kommentarerskjemaet */
+.form_comment_author {text-align:right}
+.form_comment_title input {width:100%; text-align:right}
+.form_comment_author input {width:50%; text-align:right}
+.form_comment_text textarea {width:100%;}
+.form_comment_button {text-align:right}
+
+/* Stiler for legg inn artikkel-skjemaet */
+.form_article_text textarea {width:100%;}
+.form_article_title input {width:80%; text-align:right}
+
+/* Generell bildestil */
+img   {border:2px solid #567; }
+
+/* Bildestil for PROFILBILDER - disse er n� l�st til bredde 400 og 
+h�yde 300, dette blir ordnet p� etterhvert . */
+.user_picture img {border:2px solid #567;}
+.image_admin {}
+
+
+/* Logginskjema, loginbeskjed og logutbeskjed. Merk her z-index som 
+styrer at skjemaet ligger over
+/* resten av siden, men visibility er satt til hidden i 
+utgangspunktet. Dette endres av et javascript
+/* n�r bruker trykker p� login. Hvis dere vil ha loginskjemaet synlig 
+hele tiden kan dere bare sette
+/* dette til visible. Posisjonen stilles fritt p� siden, siden 
+position:absolute. */
+
+.welcome_msg {color:#B0D687; visibility:visible; z-index:100; 
+position:absolute;top:20px; right:10%}
+
+.goodbye_msg {color:#B0D687; visibility:visible; z-index:100; 
+position:absolute;top:20px; right:10%}
+
+.login_form {visibility:hidden; z-index:100; 
+position:absolute;top:20px; right:10%;
+background-color:#B0D887; padding-bottom: 5px}
+
+
+/* Defaults for f.eks. artikkels�k, registrering og lignende - disse 
+verdiene brukes stort sett overalt
+/* hvor en egen stil ikke er angitt i denne filen, f.eks p� 
+registreringssiden og s�kesiden. */
+
+.default_table 		{width:600px;}
+
+.default_header 	{
+					font-weight:bold;
+					text-align:center;
+					padding:15px 0px 5px 0px;
+					}
+
+
+
+.default_table td 	{
+					color:black;
+					background-color:#B0D887;
+					vertical-align:top; 
+					padding:10px;
+					border-style:solid;
+					border-color:black;
+					border-width:0px 0px 0px 0px;
+					}
+
+.default_list 		{
+					position:relative;
+					left:5px;
+					font-size:80%;
+					line-height:140%
+					}
+
+.default_cursive 	{font-style:italic}
+.default_table input {}

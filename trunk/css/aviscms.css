@@ -1,0 +1,234 @@
+/* STANDARDSTIL FOR CALCUTTAGUTTA */
+
+/* Stil for hovedmenyen øverst på siden */
+.topmenu		{text-align:center; padding-top:5px}
+
+/* Stiler for linker, henholdsvis vanlig, besøkt, når musen er over og når vi klikker */
+A:link			{color:black; text-decoration:underline;}
+A:visited		{color:black; text-decoration:underline;}
+A:hover			{color:black; text-decoration:none;}
+A:action 		{color:black; text-decoration:underline;}
+
+
+
+/* Stil for knapper */
+/* Alle knapper */
+input.nice1		{width: auto; border: 3px double #999999; border-top-color: #CCCCCC; border-left-color: #CCCCCC; padding: 0.25em; background-color:rgb(240,240,240); background-repeat: repeat-x; color: black; font-size: 75%; font-weight: bold; font-family: Verdana, Helvetica, Arial, sans-serif; }
+/* Knappene i lynforumet */
+.flashforum input.nice1		{width: auto; border: 3px double #999999; border-top-color: #CCCCCC; border-left-color: #CCCCCC; padding: 0.25em; background-color:rgb(240,240,240); background-repeat: repeat-x; color: black; font-size: 75%; font-weight: bold; font-family: Verdana, Helvetica, Arial, sans-serif; }
+/* Knappen i stilvelgerboksen */
+.options input.nice1		{width: auto; border: 3px double #999999; border-top-color: #CCCCCC; border-left-color: #CCCCCC; padding: 0.25em; background-color:rgb(240,240,240); background-repeat: repeat-x; color: black; font-size: 75%; font-weight: bold; font-family: Verdana, Helvetica, Arial, sans-serif; }
+
+/* Stil for skjemaer. Inline gjør at man ikke får linjeskift før og etter. */
+form			{display:inline; }
+input			{display:inline;}
+
+/* Stil for overskriften på toppen og banneret, samt eventuelle linker der (overskriften er en link)*/
+/* For å skjule overskriften, legg til display:hidden i egenskapene til .banner h1 */
+/* For å legge til et bilde, legg til f.eks. background-image: url('http://www.velbon.org/~arewold/banner.jpg') 
+/* i .banner  -  banner-taggen må da stilles en viss høyde på for at banneret skal synes i den */
+/* Les mer her: http://www.w3schools.com/css/css_background.asp      */
+.banner A:link		{text-decoration: none}
+.banner A:active	{text-decoration: none}
+.banner A:visited	{text-decoration: none}
+.banner h1		{padding-top: 5px;  text-align:left; color:black; }
+.banner			{}
+.banner span	{font-style:italic;text-align:left; top:55px; position:relative; font-family: arial; position:absolute; display:block; font-size:70%; vertical-align:top; visibility:visible}
+
+/* Stil for tittelen på artikler på forsiden, som er en link */
+.articletitlefront a:visited {text-decoration:none; font-weight:bold; font-size:100%;  line-height:110%}
+.articletitlefront a:active {text-decoration:none; font-weight:bold; font-size:100%;  line-height:110%}
+.articletitlefront a:hover {text-decoration:none; font-weight:bold; font-size:100%;  line-height:110%}
+.articletitlefront a:link {text-decoration:none; font-weight:bold; font-size:100%;  line-height:110%}
+
+/* Ymse overskrifter vi skal bli kvitt etterhvert */ 
+.header2       {text-decoration:none; font-weight:bold; font-size:150%;  line-height:110%}
+
+/* Overskrift for listen med kommentarer */
+.header4		{font-weight:bold; font-size:100%;}
+/* Tabellcellen med "Kommentarer"-tekst på artikkelsiden (for å midtstille f.eks. */
+.comments_titlecell {}
+
+/* Bestemmer generell bakgrunnsfarge/bakgrunnsbilde, hvor mye bredde selve siden */
+/* skal ta opp i nettleservinduet, generell tekstjustering, generell fontvalg, */
+/* generelt hvor mye marginer vi har mellom linjene og mer. */
+body            {line-height:110%; font-family:Arial; background-color:white; width:90%; 
+				text-align:left; padding:0 0 0 10px}
+
+
+
+/* Stil for link til Slett kommentar */
+.delcomment {text-align:right; font-size:80%; font-style:italic; padding-left:10px;text-decoration:none}
+.delcomment A:hover {color:black; text-decoration:none}
+.delcomment A:link {color:black; text-decoration:none}
+.delcomment A:hover {color:black; text-align:right; text-decoration:underline}
+.delcomment A:active {color:black; text-decoration:none}
+
+/* Stil for linker til rediger artikkel og slett artikkel */
+.editarticle {text-align:right; font-size:90%; font-style:none; }
+.editarticle A:hover {color:black; text-decoration:text-decoration:underline}
+.editarticle A:link {color:black; text-decoration:text-decoration:underline}
+.editarticle A:hover {color:black; text-align:right; text-decoration:none}
+.editarticle A:active {color:black; text-decoration:text-decoration:underline}
+
+/* Stil for forfatternavn, tidspunkt i forbindelse med artikler */
+.author         {font-weight:bold }
+.time           { }
+.date           { }
+
+/* Stil for "XXX flere tegn i dokumentet */
+.notice			{font-size:70%; font-style:italic}
+.metatext       {font-style:none; font-size:80%}
+
+
+/* Stil for selve teksten i hhv artikler og kommentarer. */
+.textbody		{padding-bottom:20px;line-height: 120%; padding-left:10px; padding-right:10px; font-size:90%}
+.textbody_comment   {font-size:80%; padding-bottom: 5px; padding-left:10px; padding-right:10px}
+
+/* Stil for artikler på forsiden generelt */
+.articles_frontpage	{background-color:rgb(240,240,240); vertical-align:top; padding:10px; border-style:solid; 
+					border-color: white; border-width: 0px 0px 10px 0px; }
+.articles_frontpage_2column	{background-color:rgb(240,240,240); vertical-align:top; padding:10px; border-style:solid; 
+					border-color: white; border-width: 0px 0px 10px 0px;width:50%; color:black}
+.frontpage_table 	{width:*}
+
+/* Stil for artikler som vises alene */
+.articles	{vertical-align:top; width:600px}
+.articlescell {background-color:rgb(240,240,240);vertical-align:top; padding:10px; border-style:solid; 
+					border-color: white;border-width: 0px 0px 10px 0px;}
+
+/* Kommentarer */
+.commentscell {background-color:rgb(240,240,240);vertical-align:top; padding:10px; border-style:solid; 
+					border-color: white;border-width: 0px 0px 10px 0px;}
+.commentsheader	{font-weight:bold; font-size:100%;}
+.commentauthor         {font-weight:bold }
+.commenttime           { }
+.commentdate           { }
+.commentmetatext       {font-style:none; font-size:80%}
+
+
+/* Generell bildestil */
+img			  	{border:2px solid #567; }
+
+/* Bildestil for profilbilder - disse er nå låst til bredde 400 og høyde 300, dette blir 
+/* ordnet på etterhvert . */
+.user_picture img {border:2px solid #567;}
+.image_admin	{}
+
+/* Stil for de tre hovedkolonnene på forsiden samt den raden som de utgjør sammen */
+.module_left	{width:150px; padding:10px; font-size:100%; border-style:solid; 
+				border-width:0px 0px 0px 0px; margin:10px; vertical-align:top; }
+.module_center 	{width:600px; padding:10px; margin:10px; vertical-align:top;}
+.module_right 	{width:150px; padding:10px 0px 10px 10px; font-size:80%; border-style:solid; 
+				border-width:0px 0px 0px 0px;  vertical-align:top; }
+.main_row		{margin:10px;padding:20px; }
+
+/* Stil for liste med X siste artikler */
+.recentarticles_header		{font-weight:bold}
+/* DIV-gruppen som inneholder lista med linker */
+.recentarticles_links		{line-height: 120%; position:relative; left:5px}
+/* DIV-boks med en enkelt link */
+.recentarticles_link		{padding-bottom:10px;}
+/* Linken til artikkelen */
+.recentarticles_link a:link {text-decoration:none}
+.recentarticles_link a:hover {text-decoration:underline}
+.recentarticles_link a:visited {text-decoration:none}
+.recentarticles_link a:active {text-decoration:none}
+
+/* Hele DIV-boksen */
+.recentarticles 			{padding:5px 5px 5px 5px; border-style:solid; border-style:solid; border-width:0px 0px 0px 0px;
+							background-color:lightblue; margin-bottom:10px; font-size:80%}
+/* DIV-boks med RSS-link */
+.rss_feed					{line-height: 180%; font-weight:bold}
+
+
+/* Stil for seksjonene på venstre side */
+.archive_heading			{font-weight:bold}
+.archive					{padding:5px 5px 20px 5px; border-style:solid; border-width:0px 0px 0px 0px; 
+							padding-left:5px; background-color:lightblue; font-size:80%}
+.archive_list				{line-height: 180%; position:relative; left:5px}
+
+.userlist_heading			{font-weight:bold}
+.userlist					{padding:5px 5px 20px 5px; border-style:solid; border-style:solid; border-width:0px 0px 0px 0px;
+							background-color:lightblue; margin-bottom:10px; font-size:80%}
+.userlist_links				{line-height: 180%; position:relative; left:5px}
+
+/* Link til hele medlemslisten */
+.viewmemberlist {font-size:80%; text-align:right; padding-right:10px}
+
+.recentcomments_heading 	{font-weight:bold}
+.recentcomments				{padding:5px 5px 20px 5px; border-style:solid; margin-top:2px;
+							border-width:0px 0px 0px 0px; background-color:lightblue; margin-bottom:10px; font-size:80%}
+.recentcomments_list		{position:relative; left:5px; font-size:80%}
+.recentcomments_links		{position:relative; left:5px; font-size:100%}
+
+
+
+/* Stil for lynformumseksjonen */
+/* Hele seksjonen */
+.flashforum		{margin-top: 2px; padding:10px; border-style:none; background-color:lightblue; margin-bottom:10px}
+.flashforumheader {font-weight:bold}
+/* Selve listen med poster */
+.flashforumlist {font-size:100%; line-height:110%; width:140px;}
+.flashpost		{border-style:solid; border-width:0px 0px 3px 0px; border-color:white; 
+				padding:0px 0px 0px 0px; margin:0px 0px 5px 0px; padding:5px; overflow:hidden}
+.flashdate		{border-style:solid; border-width:0px 0px 2px 0px; border-color:black; 
+				margin-top:10px; font-weight:bold }
+.flashauthor	{font-weight:bold}
+
+/* Logginskjema, loginbeskjed og logutbeskjed. Merk her z-index som styrer at skjemaet ligger over
+/* resten av siden, men visibility er satt til hidden i utgangspunktet. Dette endres av et javascript
+/* når bruker trykker på login. Hvis dere vil ha loginskjemaet synlig hele tiden kan dere bare sette
+/* dette til visible. Posisjonen stilles fritt på siden, siden position:absolute. */
+.welcome_msg	{visibility:visible; z-index:100; position:absolute;top:20px; right:10%}
+.goodbye_msg	{visibility:visible; z-index:100; position:absolute;top:20px; right:10%}
+.login_form		{visibility:hidden; z-index:100; position:absolute;top:20px; right:10%; 
+				background-color:lightblue; padding-bottom: 5px}
+
+/* Options på høyre side (stilvelgeren) */
+.options		{padding:10px; border-style:none; background-color:lightblue; width:150px}
+.optionsheader	{font-weight:bold}
+
+/* Poll-CSS */
+.pollheader				{font-weight:bold}
+.poll					{padding:5px 5px 20px 5px; border-style:solid; border-style:solid; border-width:0px 0px 0px 0px;
+							background-color:lightblue; margin-bottom:10px; font-size:80%}
+.polltable TD			{}
+.polltable				{width:100%}
+.polltitle				{text-decoration:underline}
+.pollinput			{text-align:right}
+
+/* Stil for celle med link til side med alle artikler */
+.showallpolls {font-size:80%; text-align:right; padding-right:10px}
+
+
+
+/* Birthdays */
+/* Stil for containeren (div-taggen) som inneholder link til bursdagen */
+.birthdaylink {font-size:130%; font-style:none; line-height:140%}
+
+/* Defaults for f.eks. artikkelsøk, registrering og lignende - disse verdiene brukes stort sett overalt
+/* hvor en egen stil ikke er angitt i denne filen, f.eks på registreringssiden og søkesiden. */
+.default_header	{font-weight:bold}
+.default_table	{width:600px}
+.default_table td	{color:black; background-color:rgb(240,240,240);vertical-align:top; padding:10px; border-style:solid; 
+					border-color: white;border-width: 1px 1px 1px 1px;}
+.default_list	{position:relative; left:5px; font-size:80%; line-height:140%}
+.default_cursive	{font-style:italic}
+/* Generelt vil vi at alle textarea (tekstfelter som går over flere linjer) skal ta hele bredden) */
+.default_table textarea {width:100%}
+.default_blankrow	{background-color:orange; color:red}
+
+
+/* Stiler for bokser o.l i kommentarerskjemaet */
+.form_comment_author {text-align:right}
+.form_comment_title input {width:100%; text-align:right}
+.form_comment_author input {width:50%; text-align:right}
+.form_comment_text textarea {width:100%;}
+.form_comment_button {text-align:right}
+
+/* Stiler for legg inn artikkel-skjemaet */
+.form_article_text textarea {width:100%;}
+.form_article_title input {width:80%; text-align:right}
+
+.showarticlelink {text-align:left; position:relative; bottom:0px; vertical-align:bottom;}

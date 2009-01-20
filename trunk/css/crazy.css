@@ -1,0 +1,28 @@
+A:link			{color:red; text-decoration:underline;}
+A:visited		{color:red; text-decoration:underline;}
+A:hover			{color:purple; text-decoration:none;}
+A:action 		{color:red; text-decoration:underline;}
+
+form			{display: inline; }
+.important      {background-color:lightgray}
+td.greeting1	{background-color:pink;}
+td.greeting		{text-align:right; background-color:yellow;}
+td              {background-color:lightgray;}
+.header3        {font-weight:bold}
+.header2        {font-weight:bold; font-size:150%}
+body            {font-family:Courier; background-color:green; width:90%; text-align:left; padding:0 0 0 30px}
+table           {border-color:orange; border-style:none}
+.author         {font-style:italic; font-size:80%}
+.time           {font-style:italic; font-size:80%}
+.metatext       {padding: 5px 10px 10px 0px}
+.textbody		{padding-bottom:5px;}
+.textbody_comment   {font-size:80%; padding-bottom: 5px;}
+.centre         {width:100%}
+.articles_frontpage	{vertical-align:top; width:50%; padding:10px; border-style:solid; 
+					border-color: gray}
+img			  	{border:2px solid #567;}
+.sombertd		{background-color:none;}
+.module_left	{width:150px; padding:10px; font-size:80%; border-style:none; border-width:1px; margin:10px; vertical-align:top;}
+.module_center 	{width:75%; padding:10px; margin:10px; vertical-align:top;}
+.module_right 	{width:150px; padding:10px; font-size:80%; border-style:none; border-width:1px; margin:10px; vertical-align:top;}
+
