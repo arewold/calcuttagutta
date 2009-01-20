@@ -1,0 +1,100 @@
+/* Stiler for linker, henholdsvis vanlig, besøkt, når musen er over og når vi klikker */
+A:link			{color:#CCCCCC; text-decoration:underline;}
+A:visited		{color:#CCCCCC; text-decoration:underline;}
+A:hover			{color:#CCCCCC; text-decoration:none;}
+A:action 		{color:#CCCCCC; text-decoration:underline;}
+
+/* Stil for hovedmenyen øverst på siden */
+.topmenu		{text-align:center; padding-top:5px}
+
+/* Listen med spaltister */
+.userlist		{line-height: 180%; position:relative; left:5px}
+
+
+/* Stil for knapper */
+input.nice1		{width: auto; border: 3px double #999999; border-top-color: #CCCCCC; border-left-color: #CCCCCC; padding: 0.25em; background-color: #000099; background-repeat: repeat-x; color: #3399CC; font-size: 75%; font-weight: bold; font-family: Verdana, Helvetica, Arial, sans-serif; }
+
+/* Venstre celle øverst, hvor vi hilser og har loggut-knapp */
+td.greeting1	{background-color:#3399CC; color:#000099}
+
+/* Høyre celle øverst, hvor vi hilser innlogget bruker og har innloggingsskjema */
+td.greeting		{color: #000099; text-align:right; background-color:#3399CC;}
+
+/* Stil for skjemaer. Inline gjør at man ikke får linjeskift før og etter. */
+form			{display: inline; }
+
+/* Fellesstil for alle celler i tabeller */
+td              {background-color:#000099; overflow:hidden}
+
+/* Stil for overskriften på toppen og banneret */
+.banner h1		{padding-top: 5px;  text-align:left;}
+.banner			{}
+.banner span	{position:absolute; display:block; font-size:200%; vertical-align:top; visibility:hidden};
+
+
+/* Header 2 og 3 brukes til kommentaroverskrifter og artikkeloverskrifter */
+.header3        {font-weight:bold; padding-top:10px;}
+.header2        {font-weight:bold; font-size:150%; padding-top:10px}
+
+/* Bestemmer generell bakgrunnsfarge/bakgrunnsbilde, hvor mye bredde selve siden */
+/* skal ta opp i nettleservinduet, generell tekstjustering, generell fontvalg, */
+/* generelt hvor mye marginer vi har mellom linjene og mer. */
+body            {color: #CCCCCC;line-height:110%; font-family:Arial; background-color:#000099; width:90%; text-align:left; padding:0 0 0 10px}
+
+/* Stil for forfatternavn, tidspunkt i forbindelse med artikler */
+.author         {font-style:italic; font-size:80%}
+.time           {font-style:italic; font-size:80%}
+
+/* Stil for "XXX flere tall" */
+.notice			{font-size:70%; font-style:italic}
+.metatext       {padding: 5px 10px 10px 0px}
+
+/* Stil for selve teksten i hhv artikler og kommentarer. */
+.textbody		{padding-bottom:5px;line-height: 120%; padding-left:10px; padding-right:10px}
+.textbody_comment   {font-size:80%; padding-bottom: 5px; padding-left:10px; padding-right:10px}
+.centre         {width:100%}
+
+/* Stil for artikler på forsiden generelt */
+.articles_frontpage	{vertical-align:top; width:50%; padding:10px; border-style:solid; 
+					border-color: #6699CC; border-width: 0px 0px 2px 0px; }
+
+/* Stil for artikler som vises alene */
+.articles	{vertical-align:top; padding:10px; border-style:solid; 
+					border-color: #6699CC; border-width: 0px 0px 2px 0px; }
+
+/* Generell bildestil */
+img			  	{border:2px solid #567;}
+
+/* Stil for de tre hovedkolonnene samt den raden som de utgjør sammen */
+.module_left	{color: black; color:black; background-color:#6699CC; border-color:#6699CC; border-style:solid; width:150px; font-size:80%; border-width:0px 10px 0px 0px; vertical-align:top;}
+.module_center 	{width:75%; padding:10px; margin:10px; vertical-align:top;}
+.module_right 	{color:black; background-color:#6699CC; width:150px; padding:10px; font-size:80%; border-style:none; border-width:1px; margin:10px; vertical-align:top;}
+.main_row		{margin:10px;padding:20px; height:1000px;}
+
+/* Utseende på linker for venstre kolonne (fint å ha hvis man har annen bakgrunnsfarge der */
+.module_left a:link {color:black}
+.module_left a:hover {color:black}
+.module_left a:visited {color:black}
+.module_left a:active {color:black}
+
+
+/* Stil for arkivseksjon på venstre side */
+/* Hele seksjonen: */
+.archive 		{padding-top: 20px}
+/* Kun selve listen */
+.archivelist	{line-height: 180%; position:relative; left:5px}
+
+/* Stil for lynformumseksjonen */
+/* Hele seksjonen */
+.flashforum		{padding:10px; border-style:solid; border-width:2px; }
+/* Selve listen med poster */
+.flashforumlist {font-size:100%; line-height:110%; width:155px;}
+/* Horisontale skillelinjer i flashforumlisten */
+.flashforumlist hr {color:black; background-color:black; border-color:black; height:4px}
+
+
+/* Logginskjema, loginbeskjed og logutbeskjed */
+.welcome_msg	{visibility:visible; z-index:100; position:absolute;top:20px; right:10%}
+.goodbye_msg	{visibility:visible; z-index:100; position:absolute;top:20px; right:10%}
+.login_form		{visibility:hidden; z-index:100; position:absolute;top:20px; right:10%}
+
