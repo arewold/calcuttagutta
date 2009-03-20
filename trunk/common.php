@@ -23,6 +23,7 @@ require_once("modules/userService.php");
 require_once("modules/articleService.php");
 require_once("modules/settingsService.php");
 require_once("modules/i18nService.php");
+require_once("service/languageService.php");
 
 function closeUnclosedTags($unclosedString){
 	$tags = array('<i>', '<b>', '<div>', '<br>', '<a>');

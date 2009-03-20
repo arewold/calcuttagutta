@@ -5,7 +5,7 @@
  	// Check if session contains variables from previous entry attempt
  	$formContents = buildArticleArray($_SESSION);
  	
- 	h3("Legg opp en artikkel");
+ 	h3("Legg opp en artikkel :)");
  	table_open();
  	form_start_post();
  		tr_open(); 
@@ -23,6 +23,11 @@
  			td_open(1); form_timewidget($formContents['time_posted']); td_close();
  		tr_close();
  		
+		tr_open();
+ 			td_open(1);	echo("Språk"); td_close();
+ 			td_open(1); form_dropdown("language", getAllLanguageIds(), getAllLanguageNames(), 0); td_close();			
+ 		tr_close();
+		
  		tr_open();
  			td_open(1); echo("Bare lagre, ikke publiser"); td_close();
  			td_open(1); form_checkbox("is_draft", "1", "0"); td_close();
@@ -120,7 +125,7 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
  	
  	// Check if we want to add the article or just preview it
  	if ($_REQUEST['submit'] == "Forhåndsvis"){
- 		h3("Forhåndsvisning");
+ 		h3("Forhåndsvisning :)");
  		previewArticle($articleArray);
  		table_open();
 		tr_open();
@@ -264,7 +269,13 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
 	 			 
 	 			td_close();
 	 		tr_close();
- 		}
+
+			 		
+			tr_open();
+				td_open(1);	echo("Språk");  echo($formContents['language']); td_close();
+				td_open(1); form_dropdown("language", getAllLanguageIds(), getAllLanguageNames(), $formContents['language']); td_close();			
+			tr_close();	
+		}
  		
  		tr_open();
  			td_open(2);	echo("Tekst"); td_close();
