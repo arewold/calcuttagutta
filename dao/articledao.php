@@ -17,7 +17,7 @@
  		$query = "INSERT INTO articles (" .
  				"author, author_username, body, category, comment_to, " .
  				"date_posted, time_posted, intro, is_draft, is_deleted, " .
-				"picture_url, priority, title, view_count) " .
+				"picture_url, priority, title, view_count, language) " .
 				"VALUES ('" . 
 				$articleArray['author'] . "','" . 
 				$articleArray['author_username'] . "','" . 
@@ -32,9 +32,10 @@
 				$articleArray['picture_url'] . "'," .
 				$articleArray['priority'] . ",'" .
 				$articleArray['title'] . "'," .
-				$articleArray['view_count'] . ");";
+				$articleArray['view_count'] . "," .
+				$articleArray['language'] . ");";
  		
-	
+		print($query);
  		$result = insertRow($query);
  		
  		if($result){
@@ -64,10 +65,11 @@
  				"category=" . $articleArray['category'] . "," . 
  				"date_posted='" . $articleArray['date_posted'] . "'," . 
  				"time_posted='" . $articleArray['time_posted'] . "'," . 
+				"language=" . $articleArray['language'] . "," . 
  				"is_draft=" . $articleArray['is_draft'] . 
  				" WHERE articleid = " . $articleArray['articleid'] . ";";
   		
-				
+		print($query);
  		$result = insertRow($query);
 
  		if($result){
