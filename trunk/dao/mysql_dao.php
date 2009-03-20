@@ -27,10 +27,10 @@ function getArray($query){
 // mysqli_searchDB(query), returnerer array med en rad
 function connect(){
 	global $DEBUG;
-        @$link = mysql_connect('mysql.domeneshop.no', 'calcuttagutt', 'icTrKf5');
-        @$db_selected = mysql_select_db('calcuttagutt');
-	//$link = mysql_connect('localhost', 'root', 'dummy');
-	//$db_selected = mysql_select_db('calcuttagutta');
+        //@$link = mysql_connect('mysql.domeneshop.no', 'calcuttagutt', 'icTrKf5');
+        //@$db_selected = mysql_select_db('calcuttagutt');
+	    $link = mysql_connect('localhost', 'root', '');
+		$db_selected = mysql_select_db('calcuttagutta');
 
 	if($DEBUG)
 		if(!$link)
