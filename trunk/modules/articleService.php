@@ -88,7 +88,13 @@ function buildArticleArray($fromArray){
 		$articleArray['priority'] = 0;	
 	}
 
-
+	if (isset ($fromArray['language'])){
+		$articleArray['language'] = $fromArray['language'];		
+	}else{
+		$articleArray['language'] = 0;	
+	}
+	
+	
 	if (isset ($fromArray['view_count'])){
 		$articleArray['view_count'] = $fromArray['view_count'];		
 	}else{
@@ -179,16 +185,38 @@ function getValidArticle($articleid){
 	return getArray($query);
 }
 
-function getFrontpageArticles($limit){
+/**
+ * Check if a number is a counting number by checking if it
+ * is an integer primitive type, or if the string represents
+ * an integer as a string
+ */
+function is_int_val($data) {
+	if (is_int($data) === true) return true;
+	elseif (is_string($data) === true && is_numeric($data) === true) {
+		return (strpos($data, '.') === false);
+	} 
+	return false;
+}
 
+function getFrontpageArticles($limit, $languageChoice){
+	
+	
+	
 	
  	$select = "SELECT * ";
  	$from = " FROM articles ";
  	 
  	$where = "WHERE is_draft IS NULL AND is_deleted IS NULL AND comment_to IS NULL ";
+ 	
+ 	// Restrict to certain language if specified
+	if(is_int_val($languageChoice) && $languageChoice >= 0){
+		$where .= "AND language = ".$languageChoice;
+	}
+ 	
  	$timecompare = " AND (date_posted <= '" . date("Y-m-d") . "' OR (time_posted <= '" . date("H:i") . "' AND date_posted <= '" . date("Y-m-d") . "')) ";
  	$orderby = " ORDER BY date_posted DESC, time_posted DESC LIMIT ".$limit .";";
 	$query = $select . $from . $where . $timecompare . $orderby;
+	print($query);
 	return getArray($query);	
 	
 }

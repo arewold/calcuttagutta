@@ -3,20 +3,26 @@ require_once("common.php");
 
 
 function make_cookies(){
-	//$DEFAULT_STYLE = "css/aviscms.css";
+	global $stylestatus; global $css_file;
+	global $layoutstatus; global $layout;
+	global $languageChoice;
+	
 	$DEFAULT_STYLE = "css/galapagos.css";
 	if(isset($_REQUEST['chosenstyle']))
 		$styleselect = $_REQUEST['chosenstyle'];
 	if(isset($_REQUEST['chosenlayout']))
 		$layoutselect= $_REQUEST['chosenlayout'];
+	if(isset($_REQUEST['languageChoice']))
+		$languageChoice = $_REQUEST['languageChoice'];
+		
+
 	
-	global $stylestatus; global $css_file;
-	global $layoutstatus; global $layout;
+//	print("LANGUAGE COOKIE!" . $_REQUEST['languageChoice']);
 	
 	// A cookie exists
 	if(isset($_COOKIE['calcuttagutta'])){
 		$cookie_contents = explode("-", $_COOKIE['calcuttagutta']);
-
+		
 		if(isset($styleselect)){
 			$new_cookie = $_REQUEST['chosenstyle'] . "-";
 			$css_file = $_REQUEST['chosenstyle'];
@@ -38,10 +44,26 @@ function make_cookies(){
 			// Must handle old cookies, which say "weblog" instead of "1"
 			if ($layout == "weblog"){
 				$layout = "1";	
-			}
-			
+			}			
 			$new_cookie .= $layout;
 		}	
+		
+		//	Check for language preference
+		if(isset($_REQUEST['languageChoice'])){
+			
+			// If a new is specified - use that one and add it to cookie
+			$languageChoice = $_REQUEST['languageChoice'];
+			$new_cookie .= $_REQUEST['languageChoice'] . "-";
+			
+		} else {
+			// No specified - try to get from cookie
+			$languageChoice = $cookie_contents[2];
+			
+			if($languageChoice == null){
+				// Set blank if cookie didn't have any goodies
+				$languageChoice = "-1";
+			}
+		}
 		
 		setcookie ("calcuttagutta",$new_cookie, time()+60*60*24*30);
 	
@@ -58,13 +80,21 @@ function make_cookies(){
 			
 		if(isset($layoutselect)){
 			$layoutstatus .= "Ny layout og cookie: " . $_REQUEST['chosenlayout'];
-			$new_cookie .= $_REQUEST['chosenlayout'];
+			$new_cookie .= $_REQUEST['chosenlayout'] . "-";
 			$layout = $_REQUEST['chosenlayout'];
 		}else{
-			$new_cookie .= "1";
+			$new_cookie .= "1" . "-";
 			//$layoutstatus .= "Default layout: " . $_REQUEST['chosenlayout'];
 			$layout = "1";
 		}	
+		
+		if(isset($_REQUEST['languageChoice'])){
+			$languageChoice = isset($_REQUEST['languageChoice']);
+			$new_cookie = $_REQUEST['languageChoice'];
+		} else {
+			$languageChoice = '-1';
+			$new_cookie = '-1';
+		}
 		
 		setcookie ("calcuttagutta",$new_cookie, time()+60*60*24*30);		
 	
@@ -82,7 +112,7 @@ function mod_pick_style(){
 				"Blogspot" => "http://www.festsiden.org/_tore/blogspot.css",
 				"Galápagos" => "css/galapagos.css");
 	
-	global $stylestatus, $layout, $css_file;
+	global $stylestatus, $layout, $css_file, $languageChoice;
 	echo '<div class="options"><div class="optionsheader">Stilvelger</div>';
 	form_start_get();
 	
@@ -97,6 +127,7 @@ function mod_pick_style(){
 	echo "</select>";
 	form_hidden("module_right_2", "mod_pick_style");
 	form_hidden("styleselect", "styleselect");
+	echo "<br/>";echo "<br/>";
 	
 	echo '<div class="optionsheader">Velg layout</div>';
 		?>
@@ -114,6 +145,20 @@ function mod_pick_style(){
 	form_hidden("redirect", "true");
 	form_hidden("module_right_2", "mod_pick_style");
 	form_hidden("layoutselect", "layoutselect");
+	
+	echo "<br/>";echo "<br/>";
+	echo '<div class="optionsheader">Velg språk</div>';
+	
+	$arrayWithAllLanguageIds = getAllLanguageIds();
+	$arrayWithAllLanguageNames = getAllLanguageNames();
+	
+	// Add a choice for viewing articles in all languages
+	array_unshift($arrayWithAllLanguageIds, "-1");
+	array_unshift($arrayWithAllLanguageNames, "Alle språk");
+	print("fra cookie..:" . $languageChoice . "!");
+	print("fra cookie..:" . $_REQUEST['languageChoice'] . "!");
+	form_dropdown("languageChoice", $arrayWithAllLanguageIds, $arrayWithAllLanguageNames, $languageChoice + 1);
+	
 	echo "<br/>";echo "<br/>";
 	form_submit("submitlayout", "Endre");
 	form_end();
