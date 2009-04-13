@@ -376,7 +376,8 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
  }
  
  function printTopArticle($article){
- 	$SOFTLIMIT = getSetting("article_length_soft_limit", 1500);
+
+  	$SOFTLIMIT = getSetting("article_length_soft_limit", 1500);
  	$HARDLIMIT = getSetting("article_length_hard_limit", 3000);
  	$length = strlen(makeReadyForPrint(($article['body'])));
 	h1_link(stripslashes($article['title']), url_to_article($article['articleid'])); 
@@ -385,7 +386,7 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
 	div_open();		
 	
 	articleMetaInfo(getAuthorOfArticle($article['articleid']), getAuthorOfArticleUsername($article['articleid']), make_date($article['date_posted']), make_time($article['time_posted']));
-	
+	print("trying to do printtopar");
 	div_close();
 	div_open("textbody", "");
 
@@ -405,6 +406,8 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
 	else 
 		return 0;
 	
+		
+	print("printopar OK");
  }
 
  function printArticle($article){
@@ -455,6 +458,7 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
  
  function articlesFrontpage(){
 	global $layout;	
+	global $languageChoice;
 	$remaining_characters = 0;
  	$NO_COLUMNS = $layout;
  	
@@ -471,10 +475,22 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
  	}
  	
  	$counter = 0;
- 	$articles = getFrontpageArticles($NO_ARTICLES);
+ 	$articles = getFrontpageArticles($NO_ARTICLES, $languageChoice);
+
+ 	if(count($articles) == 0){
+ 		table_open();
+	 	tr_open(); td_open(1);
+	 	print("Ingen artikler.");
+	 	td_close();
+	 	tr_close();
+	 	table_close();
+	 	return;
+ 	}
  	
  	table_open();
- 	tr_open(); td_open($NO_COLUMNS);	
+ 	tr_open(); td_open($NO_COLUMNS);
+
+
  	$remaining_characters = printTopArticle($articles[0]);
  	
 	div_open("showarticlelink");
