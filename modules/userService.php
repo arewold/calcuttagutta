@@ -1,4 +1,23 @@
 <?
+
+function getLanguageName($languageId){
+	if($languageId == null){
+		return null;
+	}
+	
+	$select = "SELECT name ";
+	$from = " FROM Languages ";
+	$where = " WHERE id = " . $languageId .";"; 
+	$query = $select . $from . $where;
+	$userArray = getArray($query);
+	
+	if(!$userArray){
+		return -1;	
+	}else{
+		return $userArray[0]['name'];
+	}
+}
+
 function getAuthorOfArticle($articleid){
 	$select = "SELECT firstname ";
 	$from = " FROM articles, user ";

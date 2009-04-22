@@ -216,7 +216,7 @@ function getFrontpageArticles($limit, $languageChoice){
  	$timecompare = " AND (date_posted <= '" . date("Y-m-d") . "' OR (time_posted <= '" . date("H:i") . "' AND date_posted <= '" . date("Y-m-d") . "')) ";
  	$orderby = " ORDER BY date_posted DESC, time_posted DESC LIMIT ".$limit .";";
 	$query = $select . $from . $where . $timecompare . $orderby;
-	print($query);
+	debug($query);
 	return getArray($query);	
 	
 }

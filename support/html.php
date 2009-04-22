@@ -43,7 +43,9 @@ function div_open($class = '', $style = '', $id = ''){
 /* Creates the meta info line for an article, with author + link to author's profile
  * as well as a given date and time. Used both for articles and comments.
  */
-function articleMetaInfo($author, $author_username, $date, $time = ""){
+function articleMetaInfo($author, $author_username, $date, $time = "", $languageId = ""){
+	debug("LanguageId er " . $languageId);
+	$languageName = getLanguageName($languageId);
 	echo '<div class="metatext">';
 	echo '<span class="author">';
 	
@@ -60,9 +62,12 @@ function articleMetaInfo($author, $author_username, $date, $time = ""){
 		echo ', postet <span class="date">' . $date . '</span>';
 		echo '<span class="time"> ' . $time . '</span>';
 	}else{
-		echo ', <span class="date">' . $date . '</span>';
-		
+		echo ', <span class="date">' . $date . '</span>';	
 	}	
+	
+	if(strlen($languageName) > 0){
+		echo ' <span class="date">(' . $languageName . ')</span>';
+	}
 	
 	echo '</div>';
 }

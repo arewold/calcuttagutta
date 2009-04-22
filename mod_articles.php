@@ -458,7 +458,7 @@ function module_add_article(){
 function module_articles_frontpage(){
 	echo "<!-- start articles frontpage -->";
 	global $article_author;
-	global $no_articles; global $jokes, $layout, $chars_showing_articles, $chars_showing_first_article;
+	global $no_articles_text; global $jokes, $layout, $chars_showing_articles, $chars_showing_first_article;
 
 	$query = "select * from articles WHERE is_deleted IS NULL AND comment_to IS NULL AND is_draft IS NULL ORDER BY date_posted DESC, time_posted DESC LIMIT 8";
 	
@@ -481,7 +481,7 @@ function module_articles_frontpage(){
 		// hvis noe er feil, vis en vits.
 		echo '<tr>';
 			echo '<td colspan="2" class=\"articles_frontpage\">';
-				echo $no_articles . ' Vi presenterer i stedet en vits.<br/><br/>';
+				echo $no_articles_text . ' Vi presenterer i stedet en vits.<br/><br/>';
 				echo $jokes[array_rand($jokes, 1)]; 
 			echo '</td>';
 		echo '</tr>';

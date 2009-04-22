@@ -35,7 +35,7 @@
 				$articleArray['view_count'] . "," .
 				$articleArray['language'] . ");";
  		
-		print($query);
+		debug($query);
  		$result = insertRow($query);
  		
  		if($result){
@@ -69,7 +69,7 @@
  				"is_draft=" . $articleArray['is_draft'] . 
  				" WHERE articleid = " . $articleArray['articleid'] . ";";
   		
-		print($query);
+		debug($query);
  		$result = insertRow($query);
 
  		if($result){
