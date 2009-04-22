@@ -272,7 +272,7 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
 
 			 		
 			tr_open();
-				td_open(1);	echo("Språk");  echo($formContents['language']); td_close();
+				td_open(1);	echo("Språk"); td_close();
 				td_open(1); form_dropdown("language", getAllLanguageIds(), getAllLanguageNames(), $formContents['language']); td_close();			
 			tr_close();	
 		}
@@ -385,8 +385,8 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
 	
 	div_open();		
 	
-	articleMetaInfo(getAuthorOfArticle($article['articleid']), getAuthorOfArticleUsername($article['articleid']), make_date($article['date_posted']), make_time($article['time_posted']));
-	print("trying to do printtopar");
+	articleMetaInfo(getAuthorOfArticle($article['articleid']), getAuthorOfArticleUsername($article['articleid']), make_date($article['date_posted']), make_time($article['time_posted']), $article['language']);
+	debug("trying to do printtopar");
 	div_close();
 	div_open("textbody", "");
 
@@ -407,7 +407,7 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
 		return 0;
 	
 		
-	print("printopar OK");
+	debug("printopar OK");
  }
 
  function printArticle($article){
@@ -416,7 +416,7 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
 	 		
 	
 			
-	articleMetaInfo(getAuthorOfArticle($article['articleid']), getAuthorOfArticleUsername($article['articleid']), make_date($article['date_posted']), make_time($article['time_posted']));
+	articleMetaInfo(getAuthorOfArticle($article['articleid']), getAuthorOfArticleUsername($article['articleid']), make_date($article['date_posted']), make_time($article['time_posted']), $article['language']);
 	
 	div_open("textbody", "");
 	// Skips inserting #continue anchor due to many broken links
@@ -459,8 +459,11 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
  function articlesFrontpage(){
 	global $layout;	
 	global $languageChoice;
+	global $layoutstatus;
 	$remaining_characters = 0;
  	$NO_COLUMNS = $layout;
+ 	debug("Antall kolonner: " . $layout . " og status" . $layoutstatus);
+ 	printDebug();
  	
  	if ($layout == 1){
  		$NO_ARTICLES = 10;	
@@ -480,7 +483,8 @@ $intro, $is_draft, $is_deleted, $picture_url, $priority, $view_count)
  	if(count($articles) == 0){
  		table_open();
 	 	tr_open(); td_open(1);
-	 	print("Ingen artikler.");
+	 	global $no_articles_text;
+	 	print($no_articles_text);
 	 	td_close();
 	 	tr_close();
 	 	table_close();
@@ -699,7 +703,7 @@ function listComments($articleid){
  		
 		h1_link($article['title'], url_to_article($article['articleid'])); 
 			
-		articleMetaInfo($article['author'], $article['author_username'], make_date($article['date_posted']), make_time($article['time_posted']));
+		articleMetaInfo($article['author'], $article['author_username'], make_date($article['date_posted']), make_time($article['time_posted']), $article['language']);
 	
 		div_open("textbody", "");
 

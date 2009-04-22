@@ -16,9 +16,6 @@ function make_cookies(){
 		$languageChoice = $_REQUEST['languageChoice'];
 		
 
-	
-//	print("LANGUAGE COOKIE!" . $_REQUEST['languageChoice']);
-	
 	// A cookie exists
 	if(isset($_COOKIE['calcuttagutta'])){
 		$cookie_contents = explode("-", $_COOKIE['calcuttagutta']);
@@ -26,48 +23,64 @@ function make_cookies(){
 		if(isset($styleselect)){
 			$new_cookie = $_REQUEST['chosenstyle'] . "-";
 			$css_file = $_REQUEST['chosenstyle'];
-			$stylestatus .= "Ny stil: " . $_REQUEST['chosenstyle'];
+			addDebug("Ny stil: " . $_REQUEST['chosenstyle']);
 		}else{
-			$stylestatus .= "Gammel stil: " . $cookie_contents[0];
+			addDebug("Gammel stil: " . $cookie_contents[0]);
 			$css_file = $cookie_contents[0];
 			$new_cookie = $cookie_contents[0] . "-";
 		}
 			
 		if(isset($layoutselect)){
 			$layoutstatus .= "Ny layout: " . $_REQUEST['chosenlayout'];
- 			$new_cookie .= $_REQUEST['chosenlayout'];
+			addDebug("Ny layout: " . $_REQUEST['chosenlayout']);
+ 			$new_cookie .= $_REQUEST['chosenlayout'] . "-";
 			$layout = $_REQUEST['chosenlayout'];
 		}else{
-			$layoutstatus .= "Gammel layout: " . $cookie_contents[1];
+			$layoutstatus .= "Gammel layout: " . $cookie_contents[1] . " hele cookie: ";
+			addDebug("Gammel layout: " . $cookie_contents[1] . " hele cookie: ");
+			foreach($cookie_contents as $innhold){
+				$layoutstatus .= $innhold;
+			}
 			$layout = $cookie_contents[1];
 
 			// Must handle old cookies, which say "weblog" instead of "1"
 			if ($layout == "weblog"){
 				$layout = "1";	
 			}			
-			$new_cookie .= $layout;
+			$new_cookie .= $layout . "-";
 		}	
 		
 		//	Check for language preference
 		if(isset($_REQUEST['languageChoice'])){
-			
+			$layoutstatus .= "--had cookie, had choice in request--";
+			addDebug("--had cookie, had choice in request--");
 			// If a new is specified - use that one and add it to cookie
 			$languageChoice = $_REQUEST['languageChoice'];
-			$new_cookie .= $_REQUEST['languageChoice'] . "-";
-			
 		} else {
 			// No specified - try to get from cookie
 			$languageChoice = $cookie_contents[2];
 			
+			
 			if($languageChoice == null){
+				$layoutstatus .= "--had cookie, had no language set--";
+				addDebug("--had cookie, had no language set--");
 				// Set blank if cookie didn't have any goodies
 				$languageChoice = "-1";
-			}
+			} else {
+				$layoutstatus .= "--had cookie, had language set in it to " . $languageChoice . "--";
+				addDebug("--had cookie, had language set in it to " . $languageChoice . "--");
+			}		
 		}
 		
+		addDebug("Adding languageChoice " . $languageChoice . " to cookie");
+		$new_cookie .= $languageChoice . "-";
+		
+		
+		addDebug("Old cookie updated contents: " . $new_cookie);
 		setcookie ("calcuttagutta",$new_cookie, time()+60*60*24*30);
 	
 	}else{
+		// There's no cookie, create one
 		if(isset($styleselect)){
 			$stylestatus .= "Ny stil og cookie: " . $_REQUEST['chosenstyle'];
 			$new_cookie = $_REQUEST['chosenstyle'] . "-";
@@ -90,17 +103,18 @@ function make_cookies(){
 		
 		if(isset($_REQUEST['languageChoice'])){
 			$languageChoice = isset($_REQUEST['languageChoice']);
-			$new_cookie = $_REQUEST['languageChoice'];
+			$new_cookie .= $_REQUEST['languageChoice'];
 		} else {
 			$languageChoice = '-1';
-			$new_cookie = '-1';
+			$new_cookie .= '-1';
 		}
-		
+
+		addDebug("Brand new cookie contents: " . $new_cookie);
 		setcookie ("calcuttagutta",$new_cookie, time()+60*60*24*30);		
 	
 	}
 	
-
+	
 
 }
 
@@ -155,8 +169,8 @@ function mod_pick_style(){
 	// Add a choice for viewing articles in all languages
 	array_unshift($arrayWithAllLanguageIds, "-1");
 	array_unshift($arrayWithAllLanguageNames, "Alle språk");
-	print("fra cookie..:" . $languageChoice . "!");
-	print("fra cookie..:" . $_REQUEST['languageChoice'] . "!");
+	debug("fra cookie..:" . $languageChoice . "!");
+	debug("fra cookie..:" . $_REQUEST['languageChoice'] . "!");
 	form_dropdown("languageChoice", $arrayWithAllLanguageIds, $arrayWithAllLanguageNames, $languageChoice + 1);
 	
 	echo "<br/>";echo "<br/>";

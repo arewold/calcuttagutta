@@ -1,7 +1,7 @@
 <?
 
 function getAllLanguageNames(){
-	$query = "SELECT name FROM languages;";
+	$query = "SELECT name FROM Languages;";
 	$table = getTable($query);
 	
 	while ($row = getNextRow($table)){
@@ -12,7 +12,7 @@ function getAllLanguageNames(){
 }
 
 function getAllLanguageIds(){
-	$query = "SELECT id FROM languages";
+	$query = "SELECT id FROM Languages";
 	$table = getTable($query);
 	
 	while ($row = getNextRow($table)){

@@ -1,5 +1,17 @@
 <?
 
+// Adds a string to the global String debug messages
+function addDebug($message){
+	global $debug;
+	$debug .= "<br><br>" . $message;	
+}
+
+function printDebug(){
+	global $debug;
+	debug($debug);	
+}
+
+
 function backupToSession($array){
 	$_SESSION = array_merge($_SESSION, $array);	
 }
